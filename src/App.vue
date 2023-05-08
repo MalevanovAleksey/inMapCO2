@@ -1,23 +1,23 @@
 <template>
-  <NavHeader/>
+  <NavHeader />
   <router-view></router-view>
 </template>
 
 <script>
-import NavHeader from './components/NavHeader/NavHeader.vue'
+import NavHeader from "./components/NavHeader/NavHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // WelcomePage
-    NavHeader
-  }
-}
+    NavHeader,
+  },
+};
 </script>
 
 <style lang="scss">
-#body{
-    min-height: 98vh;
+#body {
+  min-height: 98vh;
   // background-color: #303240;
   background-color: #243043;
 }

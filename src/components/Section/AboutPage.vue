@@ -1,3 +1,3 @@
 <template>
-    {{ 'salam dorogoy' }}
+  {{ "salam dorogoy" }}
 </template>
