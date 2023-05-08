@@ -1,0 +1,3 @@
+<template>
+    {{ 'salam dorogoy' }}
+</template>
