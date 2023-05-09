@@ -13,7 +13,7 @@
       </div>
     </div>
     <div @click="showModal">Добавить точку</div>
-    <AddMarkerModal v-if="isModalVisible" @close="closeModal" />
+    <CustomAddMarkerModal v-if="isModalVisible" @close="closeModal" />
     <div class="nav__content-right">
       <div class="nav__menu">
         <ul>
@@ -40,10 +40,10 @@
 </template>
 
 <script>
-import AddMarkerModal from "../base/AddMarkerModal.vue";
+import CustomAddMarkerModal from "../Custom/CustomAddMarkerModal.vue";
 export default {
   components: {
-    AddMarkerModal,
+    CustomAddMarkerModal,
   },
   data() {
     return {

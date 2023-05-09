@@ -41,7 +41,7 @@ export default {
   methods: {
     handleClickMarker(coords) {
       this.coords = coords;
-      this.showModal(5300);
+      this.showModal();
     },
     showModal() {
       this.isModalVisible = true;

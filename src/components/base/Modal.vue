@@ -44,15 +44,21 @@
     Сведения о том, какие группы населения подвержены большему риску при вдыхании загрязненного воздуха. -->
 
       <h2>Прочие графики</h2>
+
+      <ChartGpaph />
     </div>
   </div>
 </template>
 
 <script>
+import ChartGpaph from "../Custom/ChartGpaph.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Modal",
   props: ["value"],
+  components: {
+    ChartGpaph,
+  },
   computed: {
     isModalVisible: {
       get() {

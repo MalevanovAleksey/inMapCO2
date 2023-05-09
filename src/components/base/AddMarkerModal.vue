@@ -15,7 +15,25 @@
       51.53, 45.9535
       <label for="">Координаты</label>
       <input v-model="inputValue" />
-      <p>Значение инпута: {{ inputValue }}</p>
+
+      <div>
+        <h2>объем выброса в м³</h2>
+        <label for="">Координаты</label>
+        <input v-model="inputValue" />
+
+        <label for="">площадь источника выброса в м²</label>
+        <input v-model="inputValue" />
+
+        <label for="">высота источника выброса в м</label>
+        <input v-model="inputValue" />
+
+        <label for=""
+          >удельный выброс (количество CO2, выбрасываемое на единицу времени на
+          единицу площади)</label
+        >
+        <input v-model="inputValue" />
+      </div>
+
       <button @click="addMarker">Добавить маркер</button>
     </div>
   </div>
@@ -47,10 +65,6 @@ export default {
         ...this.$store.state.markers,
         { coords: this.inputValue.split(",").map(parseFloat) }, //51.53, 45.9535
       ]);
-      setTimeout(() => {
-        this.$emit("close");
-        console.log(this.$store.state.markers);
-      }, 1000);
     },
     closeModal() {
       console.log("closeModal");
