@@ -12,7 +12,8 @@
         </ul>
       </div>
     </div>
-    <div @click="addMarker">Добавить точку</div>
+    <div @click="showModal">Добавить точку</div>
+    <AddMarkerModal v-if="isModalVisible" @close="closeModal" />
     <div class="nav__content-right">
       <div class="nav__menu">
         <ul>
@@ -39,13 +40,23 @@
 </template>
 
 <script>
+import AddMarkerModal from "../base/AddMarkerModal.vue";
 export default {
+  components: {
+    AddMarkerModal,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
   methods: {
-    addMarker() {
-      this.$store.dispatch("changeMarkers", [
-        ...this.$store.state.markers,
-        { coords: [51.53, 45.9535] },
-      ]);
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.markerInfo = null;
+      this.isModalVisible = false;
     },
   },
 };

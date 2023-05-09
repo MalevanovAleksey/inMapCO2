@@ -43,13 +43,6 @@ export default {
       this.coords = coords;
       this.showModal(5300);
     },
-    addMarker() {
-      this.$store.dispatch("changeMarkers", [
-        ...this.$store.state.markers,
-        { coords: [51.53, 45.9535] },
-      ]);
-      console.log(this.$store);
-    },
     showModal() {
       this.isModalVisible = true;
     },
