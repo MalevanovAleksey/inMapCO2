@@ -11,54 +11,72 @@
         }"
       >
         <swiper-slide>
-          <div class="column">
+          <div class="column-center" style="height: 350px">
             <h2>Объем выброса в м³</h2>
-            <label for="">Координаты</label>
-            <input v-model="coordsInput" />
+            <div class="column">
+              <label for="">Координаты</label>
+              <Input placeholder="777" v-model="coordsInput" />
+            </div>
 
-            <label for="">площадь источника выброса в м²</label>
-            <input v-model="area" />
+            <div class="column mt-10">
+              <label for="">Площадь источника выброса в м²</label>
+              <Input placeholder="777" v-model="area" />
+            </div>
 
-            <label for="">высота источника выброса в м</label>
-            <input v-model="height" />
+            <div class="column mt-10">
+              <label for="">Высота источника выброса в м</label>
+              <Input placeholder="777" v-model="height" />
+            </div>
 
-            <label for=""
-              >удельный выброс (количество CO2, выбрасываемое на единицу времени
-              на единицу площади)</label
-            >
-            <input v-model="emissions" />
+            <div class="column mt-10">
+              <label for="">Удельный выброс</label>
+              <Input placeholder="777" v-model="emissions" />
+            </div>
           </div>
         </swiper-slide>
         <swiper-slide
-          ><div class="column">
+          ><div class="column-center">
             <h2>Скорость потока выбросов</h2>
+            <div class="column"></div>
             <label for="">скорость воздуха в м/с</label>
-            <input v-model="velocity" />
-
+            <Input placeholder="777" v-model="velocity" />
+            <div class="column mt-10"></div>
             <label for="">площадь сечения потока выбросов в м²</label>
-            <input v-model="areaFlow" />
+            <Input placeholder="777" v-model="areaFlow" />
           </div>
         </swiper-slide>
         <swiper-slide
-          ><div class="column">
+          ><div class="column-center">
             <h2>Концентрация выбросов в атмосфере:</h2>
-            <label for="">скорость потока выбросов в м³/с</label>
-            <input v-model="flowRate" />
+            <div class="column">
+              <label for="">скорость потока выбросов в м³/с</label>
+              <Input placeholder="777" v-model="flowRate" />
+            </div>
 
-            <label for="">скорость воздуха в м/с</label>
-            <input v-model="velocity" />
+            <div class="column mt-10">
+              <label for="">скорость воздуха в м/с</label>
+              <Input placeholder="777" v-model="velocity" />
+            </div>
 
-            <label for="">площадь сечения потока выбросов в м²</label>
-            <input v-model="area" />
+            <div class="column mt-10">
+              <label for="">площадь сечения потока выбросов в м²</label>
+              <Input placeholder="777" v-model="area" />
+            </div>
 
-            <label for="">атмосферное давление в Па</label>
-            <input v-model="pressure" />
+            <div class="column mt-10">
+              <label for="">атмосферное давление в Па</label>
+              <Input placeholder="777" v-model="pressure" />
+            </div>
 
-            <label for="">коэффициент диффузии в м²/с</label>
-            <input v-model="diffusionCoefficient" />
+            <div class="column mt-10">
+              <label for="">коэффициент диффузии в м²/с</label>
+              <Input placeholder="777" v-model="diffusionCoefficient" />
+            </div>
 
-            <label for="">время, прошедшее с момента выброса в с</label>
-            <input v-model="time" />
+            <div class="column mt-10">
+              <label for="">время, прошедшее с момента выброса в с</label>
+              <Input placeholder="777" v-model="time" />
+            </div>
           </div>
         </swiper-slide>
       </swiper>
@@ -80,6 +98,7 @@
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Button from "../base/Button.vue";
+import Input from "../base/Input.vue";
 
 // import swiper module styles
 import "swiper/css";
@@ -91,6 +110,7 @@ export default {
     Swiper,
     SwiperSlide,
     Button,
+    Input,
   },
   setup() {
     return {
@@ -134,6 +154,14 @@ export default {
 .column {
   display: flex;
   flex-direction: column;
+  &-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.mt-10 {
+  margin-top: 10px;
 }
 .swiper {
   height: 100%;
@@ -162,7 +190,7 @@ export default {
   max-height: 90vh;
   overflow: auto;
   min-height: 600px;
-  width: 800px;
+  width: 550px;
 }
 
 .btn-block {
