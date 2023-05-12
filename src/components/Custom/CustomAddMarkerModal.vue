@@ -15,22 +15,23 @@
             <h2>Объем выброса в м³</h2>
             <div class="column">
               <label for="">Координаты</label>
-              <Input placeholder="777" v-model="coordsInput" />
+              <Input placeholder="51.5302, 45.9535" v-model="coordsInput" />
+              <div>{{ coordsInput }}</div>
             </div>
 
             <div class="column mt-10">
               <label for="">Площадь источника выброса в м²</label>
-              <Input placeholder="777" v-model="area" />
+              <Input placeholder="100" v-model="area" />
             </div>
 
             <div class="column mt-10">
               <label for="">Высота источника выброса в м</label>
-              <Input placeholder="777" v-model="height" />
+              <Input placeholder="5" v-model="height" />
             </div>
 
             <div class="column mt-10">
               <label for="">Удельный выброс</label>
-              <Input placeholder="777" v-model="emissions" />
+              <Input placeholder="0.01" v-model="emissions" />
             </div>
           </div>
         </swiper-slide>
@@ -39,43 +40,39 @@
             <h2>Скорость потока выбросов</h2>
             <div class="column"></div>
             <label for="">скорость воздуха в м/с</label>
-            <Input placeholder="777" v-model="velocity" />
+            <Input placeholder="2" v-model="velocity" />
             <div class="column mt-10"></div>
             <label for="">площадь сечения потока выбросов в м²</label>
-            <Input placeholder="777" v-model="areaFlow" />
+            <Input placeholder="10" v-model="areaFlow" />
           </div>
         </swiper-slide>
         <swiper-slide
           ><div class="column-center">
             <h2>Концентрация выбросов в атмосфере:</h2>
-            <div class="column">
-              <label for="">скорость потока выбросов в м³/с</label>
-              <Input placeholder="777" v-model="flowRate" />
-            </div>
 
             <div class="column mt-10">
               <label for="">скорость воздуха в м/с</label>
-              <Input placeholder="777" v-model="velocity" />
+              <Input placeholder="2" v-model="velocity" />
             </div>
 
             <div class="column mt-10">
               <label for="">площадь сечения потока выбросов в м²</label>
-              <Input placeholder="777" v-model="area" />
+              <Input placeholder="10" v-model="area" />
             </div>
 
             <div class="column mt-10">
               <label for="">атмосферное давление в Па</label>
-              <Input placeholder="777" v-model="pressure" />
+              <Input placeholder="101325" v-model="pressure" />
             </div>
 
             <div class="column mt-10">
               <label for="">коэффициент диффузии в м²/с</label>
-              <Input placeholder="777" v-model="diffusionCoefficient" />
+              <Input placeholder="0.2" v-model="diffusionCoefficient" />
             </div>
 
             <div class="column mt-10">
               <label for="">время, прошедшее с момента выброса в с</label>
-              <Input placeholder="777" v-model="time" />
+              <Input placeholder="600" v-model="time" />
             </div>
           </div>
         </swiper-slide>
@@ -122,29 +119,45 @@ export default {
       coordsInput: "",
       //volume = area * height * emissions;
       volume: null, // V
-      area: null, // A
-      height: null, // H
-      emissions: null, // E
+      area: "100", // A
+      height: "5", // H
+      emissions: "0.01", // E
 
-      //flowRate = velocity * area;
+      //flowRate = velocity * areaFlow;
       flowRate: null, // Q
-      velocity: null, // u
-      areaFlow: null, // A
+      velocity: 2, // u
+      areaFlow: 10, // A
 
       //concentration = (flowRate / (velocity * area)) * (pressure / diffusionCoefficient) * (1 - Math.exp(-diffusionCoefficient * time));
       concentration: null, // C
-      pressure: null, // P
-      diffusionCoefficient: null, // R
-      time: null, // t
+      pressure: 101325, // P
+      diffusionCoefficient: 0.2, // R
+      time: 600, // t
     };
   },
   methods: {
     addMarker() {
       this.$store.dispatch("changeMarkers", [
         ...this.$store.state.markers,
-        { coords: this.inputValue.split(",").map(parseFloat) }, //51.53, 45.9535
+        {
+          coords: this.coordsInput.split(",").map(parseFloat),
+          // volume: this.area * this.height * this.emissions
+        }, //51.53, 45.9535
       ]);
+      this.calculateFormulas();
+      console.log(this.volume, this.flowRate, this.concentration);
+      console.log(-this.diffusionCoefficient);
       this.$emit("close");
+    },
+
+    calculateFormulas() {
+      this.volume = this.area * this.height * this.emissions;
+      this.flowRate = this.velocity * this.areaFlow;
+      this.concentration =
+        ((this.flowRate / (this.velocity * this.areaFlow)) *
+          (this.pressure / this.diffusionCoefficient) *
+          (1 - Math.exp(-this.diffusionCoefficient * this.time))) /
+        1000;
     },
   },
 };
@@ -238,5 +251,12 @@ export default {
 .add-marker {
   position: absolute;
   top: 513px;
+}
+.input {
+  height: 20px;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 </style>

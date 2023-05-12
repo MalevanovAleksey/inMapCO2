@@ -1,19 +1,25 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <input class="input" :placeholder="placeholder" @click="onClick" />
+  <input class="input" :value="modelValue" :placeholder="placeholder" @click="onClick" @input="onInput" />
 </template>
 
 <script>
 export default {
-  props: { title: String, onClick: Function, placeholder: String },
+  props: { title: String, onClick: Function, placeholder: String, modelValue: String },
   computed: {
     currentChannelId() {
       return this.$store.state.currentChannel?.id;
     },
   },
   methods: {
-    getChannelData(channel) {
-      this.$store.dispatch("changeCurrentChannel", channel);
+    // eslint-disable-next-line vue/no-dupe-keys
+    onClick() {
+      if (this.onClick) {
+        this.onClick();
+      }
+    },
+    onInput(event) {
+      this.$emit('update:modelValue', event.target.value);
     },
   },
 };
