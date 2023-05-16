@@ -116,7 +116,7 @@ export default {
   },
   data() {
     return {
-      coordsInput: "",
+      coordsInput: "51.5302, 45.9535",
       //volume = area * height * emissions;
       volume: null, // V
       area: "100", // A

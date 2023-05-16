@@ -18,9 +18,7 @@
       />
     </template>
   </yandex-map>
-  <Modal v-if="isModalVisible" @close="closeModal">
-    <!-- <p>{{ 'salam da' }}</p> -->
-  </Modal>
+  <Modal v-if="isModalVisible" @close="closeModal"> </Modal>
 </template>
 
 <script>

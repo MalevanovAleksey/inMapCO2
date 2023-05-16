@@ -99,7 +99,7 @@ export default {
   max-height: 80%;
   overflow-y: auto;
   position: relative;
-  height: 60%;
+  height: 80%;
   width: 100%;
 }
 
