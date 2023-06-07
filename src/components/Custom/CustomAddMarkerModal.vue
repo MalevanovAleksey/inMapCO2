@@ -16,7 +16,7 @@
             <div class="column">
               <label for="">Координаты</label>
               <Input placeholder="51.5302, 45.9535" v-model="coordsInput" />
-              <div>{{ coordsInput }}</div>
+              <!-- <div>{{ coordsInput }}</div> -->
             </div>
 
             <div class="column mt-10">
@@ -101,7 +101,7 @@ import Input from "../base/Input.vue";
 import "swiper/css";
 import "swiper/css/navigation";
 // more module style...
-
+import axios from "axios";
 export default {
   components: {
     Swiper,
@@ -137,13 +137,20 @@ export default {
   },
   methods: {
     addMarker() {
-      this.$store.dispatch("changeMarkers", [
-        ...this.$store.state.markers,
-        {
-          coords: this.coordsInput.split(",").map(parseFloat),
-          // volume: this.area * this.height * this.emissions
-        }, //51.53, 45.9535
-      ]);
+      axios
+        .post("http://localhost:3000/markers", {
+          coords: [51.5302, 45.9535],
+          volume: null,
+          flowRate: null,
+          concentration: null,
+        })
+        .then((response) => {
+          this.$store.dispatch("changeMarkers", [
+            ...this.$store.state.markers,
+            response.data,
+          ]);
+        });
+
       this.calculateFormulas();
       console.log(this.volume, this.flowRate, this.concentration);
       console.log(-this.diffusionCoefficient);

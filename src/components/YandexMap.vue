@@ -1,11 +1,44 @@
 <template>
   <yandex-map style="width: 100%; height: 90vh" v-if="true" :coords="coords">
     <ymap-marker
-      :coords="[51.5309, 45.9535]"
+      :coords="[51.55472204849689, 45.94214317675754]"
       @click.prevent="handleClickMarker([51.5309, 45.9535])"
       :options="{
         iconLayout: 'default#image',
-        iconImageHref: require('@/assets/logo.png'),
+        iconImageHref: require('@/assets/markers/fiol.png'),
+        iconImageSize: [32, 32],
+        iconImageOffset: [-16, -16],
+      }"
+    />
+
+    <ymap-marker
+      :coords="[51.530316859714716, 46.02110741015518]"
+      @click.prevent="handleClickMarker([51.5309, 45.9535])"
+      :options="{
+        iconLayout: 'default#image',
+        iconImageHref: require('@/assets/markers/1.gif'),
+        iconImageSize: [32, 32],
+        iconImageOffset: [-16, -16],
+      }"
+    />
+
+    <ymap-marker
+      :coords="[51.432, 45.9535]"
+      @click.prevent="handleClickMarker([51.5309, 45.9535])"
+      :options="{
+        iconLayout: 'default#image',
+        iconImageHref: require('@/assets/markers/green.png'),
+        iconImageSize: [32, 32],
+        iconImageOffset: [-16, -16],
+      }"
+    />
+
+    <ymap-marker
+      :coords="[51.540166150855185, 46.06093284960848]"
+      @click.prevent="handleClickMarker([51.5309, 45.9535])"
+      :options="{
+        iconLayout: 'default#image',
+        iconImageHref: require('@/assets/markers/yellow.png'),
         iconImageSize: [32, 32],
         iconImageOffset: [-16, -16],
       }"
@@ -14,6 +47,12 @@
     <template v-for="marker in $store.state.markers" :key="marker">
       <ymap-marker
         :coords="marker.coords"
+        :options="{
+        iconLayout: 'default#image',
+        iconImageHref: require('@/assets/markers/yellow.png'),
+        iconImageSize: [32, 32],
+        iconImageOffset: [-16, -16],
+      }"
         @click.prevent="handleClickMarker(marker.coords)"
       />
     </template>

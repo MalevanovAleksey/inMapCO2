@@ -5,15 +5,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "json-server": "json-server --watch db.json"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "chart": "^0.1.2",
     "chart.js": "^4.3.0",
     "core-js": "^3.8.3",
+    "json-server": "^0.17.3",
     "swiper": "^9.3.0",
     "vue": "^3.2.13",
     "vue-awesome-swiper": "^5.0.1",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.1.6",
     "vue-slick-carousel": "^1.0.6",
     "vue-yandex-maps": "^0.12.3",

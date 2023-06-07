@@ -5,32 +5,7 @@ const store = createStore({
     return {
       messages: [],
       friends: [],
-      markers: [
-        {
-          coords: [51.5308, 45.9535],
-          volume: null,
-          flowRate: null,
-          concentration: null,
-        },
-        {
-          coords: [51.5305, 45.9535],
-          volume: null,
-          flowRate: null,
-          concentration: null,
-        },
-        {
-          coords: [51.5303, 45.9535],
-          volume: null,
-          flowRate: null,
-          concentration: null,
-        },
-        {
-          coords: [51.5302, 45.9535],
-          volume: null,
-          flowRate: null,
-          concentration: null,
-        },
-      ],
+      markers: [],
       currentProfile: {},
       currentChannel: null,
     };

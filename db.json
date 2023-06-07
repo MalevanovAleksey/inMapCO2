@@ -1,0 +1,34 @@
+{
+  "myAcc": {
+    "avatar": "https://img5.goodfon.com/original/1024x1024/3/a0/devushka-spina-gorod-vysota-solntse.jpg",
+    "fullName": "Amilia Luna",
+    "status": true,
+    "description": "UL Designer",
+    "username": "@amilia_lu",
+    "email": "a-luna@gmail.com",
+    "skype": "amiluna",
+    "timezone": "2:21 PM Local time"
+  },
+  "markers": [
+    {
+      "id": 0,
+      "coords": [
+        51.5308,
+        45.9535
+      ],
+      "volume": null,
+      "flowRate": null,
+      "concentration": null
+    },
+    {
+      "coords": [
+        51.5302,
+        45.9535
+      ],
+      "volume": null,
+      "flowRate": null,
+      "concentration": null,
+      "id": 1
+    }
+  ]
+}

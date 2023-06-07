@@ -118,12 +118,12 @@
       <p>
         <img src="../../assets/img/mail.png" style="width: 14px" />
         <a href="gryskova.veronika@gmail.com"
-          >Почта: gryskova.veronika@gmail.com
+          >Почта: malevanov.aleksey@gmail.com
         </a>
       </p>
       <p>
         <img src="../../assets/img/copyright1.png" style="width: 14px" /> 2021
-        Грыськова Вероника ЭЖД-19120
+       Малеванов Алексей
       </p>
     </div>
   </bottom>
@@ -145,6 +145,10 @@ ul {
 
 a img {
   border: none;
+}
+
+a{
+  color: white;
 }
 
 header h1 {
