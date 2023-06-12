@@ -12,12 +12,13 @@ export default {
     // WelcomePage
     NavHeader,
   },
-  mounted(){
-    axios.get("http://localhost:3000/markers").then((response) =>{
+  mounted() {
+    // document.body.style.zoom = 1;
+    axios.get("http://localhost:3000/markers").then((response) => {
       this.$store.dispatch("changeMarkers", response.data);
-      console.log(this.$store)
-    })
-  }
+      console.log(this.$store);
+    });
+  },
 };
 </script>
 

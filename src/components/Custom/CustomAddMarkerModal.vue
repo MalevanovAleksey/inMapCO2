@@ -143,6 +143,7 @@ export default {
           volume: null,
           flowRate: null,
           concentration: null,
+          iconType: 1,
         })
         .then((response) => {
           this.$store.dispatch("changeMarkers", [

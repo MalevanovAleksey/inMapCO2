@@ -103,7 +103,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 ul {
   list-style: none;
 }
@@ -150,43 +150,6 @@ ul {
     }
   }
 
-  .circle {
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-    border-radius: 10px;
-
-    &.red {
-      background: radial-gradient(rgb(255, 255, 255), red);
-      box-shadow: 0px 0px 10px red;
-    }
-
-    &.green {
-      background: radial-gradient(rgb(255, 255, 255), green);
-      box-shadow: 0px 0px 10px green;
-    }
-
-    &.yellow {
-      background: radial-gradient(rgb(255, 255, 255), yellow);
-      box-shadow: 0px 0px 10px yellow;
-    }
-
-    &.orange {
-      background: radial-gradient(rgb(255, 255, 255), orange);
-      box-shadow: 0px 0px 10px orange;
-    }
-
-    &.purple {
-      background: radial-gradient(rgb(255, 255, 255), #a070b6);
-      box-shadow: 0px 0px 10px #a070b6;
-    }
-
-    &.maroon {
-      background: radial-gradient(rgb(255, 255, 255), #aa3f61);
-      box-shadow: 0px 0px 10px #a06a7b;
-    }
-  }
-
   .title {
     display: flex;
     align-items: center;
@@ -230,6 +193,38 @@ ul {
       font-size: 20px;
       padding: 10px 0;
     }
+  }
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-size: cover;
+
+  &.red {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c4.svg);
+  }
+
+  &.green {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c1.svg);
+  }
+
+  &.yellow {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c2.svg);
+  }
+
+  &.orange {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c3.svg);
+  }
+
+  &.purple {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c5.svg);
+  }
+
+  &.maroon {
+    background-image: url(https://www.iqair.com/assets/img/map-clusterer/c6.svg);
   }
 }
 </style>

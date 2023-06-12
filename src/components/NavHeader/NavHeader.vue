@@ -12,8 +12,15 @@
         </ul>
       </div>
     </div>
-    <div @click="showModal">Добавить точку</div>
-    <CustomAddMarkerModal v-if="isModalVisible" @close="closeModal" />
+    <div class="nav__actions">
+      <div @click="showModal('isModalMarkerlVisible')">Добавить точку</div>
+      <div @click="showModal('isModalFilterlVisible')">Фильтр</div>
+    </div>
+
+    <CustomAddMarkerModal v-if="isModalMarkerlVisible" @close="closeModal" />
+
+    <CustomFilerModal v-if="isModalFilterlVisible" @close="closeModal" />
+
     <div class="nav__content-right">
       <div class="nav__menu">
         <ul>
@@ -41,22 +48,32 @@
 
 <script>
 import CustomAddMarkerModal from "../Custom/CustomAddMarkerModal.vue";
+import CustomFilerModal from "../Custom/CustomFilerModal.vue";
 export default {
   components: {
     CustomAddMarkerModal,
+    CustomFilerModal,
   },
   data() {
     return {
-      isModalVisible: false,
+      isModalMarkerlVisible: false,
+      isModalFilterlVisible: false,
     };
   },
   methods: {
-    showModal() {
-      this.isModalVisible = true;
+    showModal(modalType) {
+      switch (modalType) {
+        case "isModalMarkerlVisible":
+          this.isModalMarkerlVisible = !this.isModalMarkerlVisible;
+          break;
+        case "isModalFilterlVisible":
+          this.isModalFilterlVisible = !this.isModalFilterlVisible;
+          break;
+      }
     },
     closeModal() {
-      this.markerInfo = null;
-      this.isModalVisible = false;
+      this.isModalMarkerlVisible = false;
+      this.isModalFilterlVisible = false;
     },
   },
 };
@@ -74,6 +91,24 @@ export default {
     margin-left: 40px;
   }
 
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid #8a2be27d;
+    border-radius: 10px;
+    padding: 10px;
+
+    div {
+      padding: 0 40px;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
   &__content {
     &-left {
       display: flex;
@@ -82,6 +117,9 @@ export default {
     &-right {
       display: flex;
       align-items: center;
+      border: 1px solid #8a2be27d;
+      border-radius: 10px;
+      padding-right: 40px;
       ul {
         display: flex;
         list-style: none;

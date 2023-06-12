@@ -24,10 +24,10 @@
 
     <ymap-marker
       :coords="[51.432, 45.9535]"
-      @click.prevent="handleClickMarker([51.5309, 45.9535])"
+      @click.prevent="handleClickMarker([51.432, 45.9535])"
       :options="{
         iconLayout: 'default#image',
-        iconImageHref: require('@/assets/markers/green.png'),
+        iconImageHref: 'https://www.iqair.com/assets/img/map-clusterer/c1.svg',
         iconImageSize: [32, 32],
         iconImageOffset: [-16, -16],
       }"
@@ -35,7 +35,9 @@
 
     <ymap-marker
       :coords="[51.540166150855185, 46.06093284960848]"
-      @click.prevent="handleClickMarker([51.5309, 45.9535])"
+      @click.prevent="
+        handleClickMarker([51.540166150855185, 46.06093284960848])
+      "
       :options="{
         iconLayout: 'default#image',
         iconImageHref: require('@/assets/markers/yellow.png'),
@@ -48,11 +50,11 @@
       <ymap-marker
         :coords="marker.coords"
         :options="{
-        iconLayout: 'default#image',
-        iconImageHref: require('@/assets/markers/yellow.png'),
-        iconImageSize: [32, 32],
-        iconImageOffset: [-16, -16],
-      }"
+          iconLayout: 'default#image',
+          iconImageHref: `https://www.iqair.com/assets/img/map-clusterer/c${marker.iconType}.svg`,
+          iconImageSize: [32, 32],
+          iconImageOffset: [-16, -16],
+        }"
         @click.prevent="handleClickMarker(marker.coords)"
       />
     </template>
